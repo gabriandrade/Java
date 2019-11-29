@@ -92,15 +92,6 @@ export class FormProdutosComponent implements OnInit {
           result = this.produtosService.insert(this.formProduto.value);
         }
 
-        if (this.file) {
-          result.then( (key: string) => {
-            this.produtosService.uploadImg(key, this.file);
-            this.criarFormulario();
-          });
-        } else {
-          this.criarFormulario();
-        }
-
         this.router.navigate(['produtos']);
         this.toastr.success('Produtos salvo com sucesso!!!');
       }
