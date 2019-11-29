@@ -1,0 +1,33 @@
+<h3>JAV</h3>
+<hr>
+<div class="card">
+  <div class="card-header text-right">
+    <a class="btn btn-primary" role="button" [routerLink]="['/categorias/nova']">Nova categoria</a>
+  </div>
+  <div class="card-body">
+    <table class="table grid">
+      <thead>
+        <tr>
+          <th scope="col">JAV</th>
+          <th scope="col">Edição</th>
+          <th scope="col">Ano</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let categoria of categorias | async" >
+          <td>{{ categoria.nome }}</td>
+          <td>{{ categoria.edicao }}</td>
+          <td>{{ categoria.ano}}</td>
+          <td class="edit">
+            <a class="btn btn-warning text-white" role="button" [routerLink]="['/categorias/editar', categoria.key]"><i class="far fa-edit"></i>Editar</a>
+          </td>
+          <td class="delete">
+            <button class="btn btn-danger" (click)="remover(categoria.key)"><i class="far fa-trash-alt"></i>Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
