@@ -21,9 +21,6 @@
       <tbody>
         <tr *ngFor="let produto of produtos | async">
           <!-- <th scope="row">{{produto.key}}</th> -->
-          <td>
-            <img [src]="produto.img" class="img-thumbnail" style="max-width: 50px;" [hidden]="!produto.img" />
-          </td>
           <td>{{ produto.nome }}</td>
           <td>{{ produto.edicao }}</td>
           <td>{{ produto.ano }}</td>

@@ -17,7 +17,6 @@ export class FormProdutosComponent implements OnInit {
   categorias: Observable<any[]>;
 
   private file: File = null;
-  imgUrl = '';
   filePath = '';
   result: void;
 
@@ -44,10 +43,8 @@ export class FormProdutosComponent implements OnInit {
               descricao: produtos.descricao,
               categoriaKey: produtos.categoriaKey,
               categoriaNome: produtos.categoriaNome,
-              img: ''
             });
 
-            this.imgUrl = produtos.img || '';
             this.filePath = produtos.filePath || '';
 
           });

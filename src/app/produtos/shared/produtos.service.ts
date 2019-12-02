@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
-import { map, finalize } from 'rxjs/operators';
+import { map, } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 @Injectable({
@@ -28,7 +28,6 @@ export class ProdutosService {
       const produtoRef = {
         nome: produto.nome,
         descricao: produto.descricao,
-        preco: produto.preco,
         categoriaKey: produto.categoriaKey,
         categoriaNome: produto.categoriaNome,
       };
