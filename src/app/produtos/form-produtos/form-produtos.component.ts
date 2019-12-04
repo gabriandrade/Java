@@ -1,6 +1,6 @@
 import { ProdutosService } from './../shared/produtos.service';
 import { Component, OnInit } from '@angular/core';
-import { CategoriasService } from '../../categorias/shared/categorias.service';
+// import { CategoriasService } from '../../categorias/shared/categorias.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -42,6 +42,7 @@ export class FormProdutosComponent implements OnInit {
               nome: produtos.nome,
               edicao: produtos.edicao,
               ano: produtos.ano,
+              descricao: produtos.descricao,
             });
 
             this.filePath = produtos.filePath || '';

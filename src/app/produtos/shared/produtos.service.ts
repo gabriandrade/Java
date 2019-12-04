@@ -29,6 +29,7 @@ export class ProdutosService {
         nome: produto.nome,
         edicao: produto.edicao,
         ano: produto.ano,
+        descricao: produto.descricao,
       };
 
       if (key) {
