@@ -27,9 +27,8 @@ export class ProdutosService {
     return new Promise( (resolve, reject) => {
       const produtoRef = {
         nome: produto.nome,
-        descricao: produto.descricao,
-        categoriaKey: produto.categoriaKey,
-        categoriaNome: produto.categoriaNome,
+        edicao: produto.edicao,
+        ano: produto.ano,
       };
 
       if (key) {

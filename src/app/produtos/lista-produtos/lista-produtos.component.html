@@ -9,10 +9,10 @@
       <thead>
         <tr>
           <!-- <th scope="col">#</th> -->
-          <th scope="col">#</th>
           <th scope="col">Título</th>
           <th scope="col">Edição</th>
           <th scope="col">Ano</th>
+          <th scope="col">Descrição</th>
           <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"></th>
@@ -24,11 +24,12 @@
           <td>{{ produto.nome }}</td>
           <td>{{ produto.edicao }}</td>
           <td>{{ produto.ano }}</td>
+          <td>{{ produto.descricao }}</td>
           <td class="edit">
-            <a class="btn btn-warning text-white" role="button" [routerLink]="['/produtos/editar', produto.key]"><i class="far fa-edit"></i></a>
+            <a class="btn btn-warning text-white" role="button" [routerLink]="['/produtos/editar', produto.key]"><i class="far fa-edit"></i>Editar</a>
           </td>
           <td class="delete">
-            <button class="btn btn-danger" (click)="remover(produto.key, produto.filePath)"><i class="far fa-trash-alt"></i></button>
+            <button class="btn btn-danger" (click)="remover(produto.key, produto.filePath)"><i class="far fa-trash-alt"></i>Excluir</button>
           </td>
         </tr>
       </tbody>

@@ -11,16 +11,18 @@
       O nome é obrigatório.
     </div>
   </div>
+<textarea rows="5" cols="50">
+</textarea>
   <div class="form-group">
     <label for="edicao">Edição</label>
-    <input type="text" class="form-control" id="edicao" placeholder="Descrição da categoria" formControlName="edicao">
+    <input type="number" class="form-control" id="edicao" placeholder="Edição do Jornal" formControlName="edicao">
   </div>
   <div class="form-group">
     <label for="ano">Ano</label>
-    <input type="date" class="form-control" id="ano" placeholder="Anos dos jornais" formControlName="ano">
+    <input type="number" class="form-control" id="ano" placeholder="Ano do Jornal" formControlName="ano">
   </div>
 
-  <button type="submit" class="btn btn-primary" [routerLink]="['/categorias']">Salvar</button>
-  <a class="btn btn-secondary ml-2" [routerLink]="['/categorias']">Voltar</a>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+  <a class="btn btn-secondary ml-2" [routerLink]="['/produtos']">Voltar</a>
 
 </form>

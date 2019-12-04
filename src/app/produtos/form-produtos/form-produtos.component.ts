@@ -22,7 +22,7 @@ export class FormProdutosComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder,
                 private route: ActivatedRoute,
-                private categoriasService: CategoriasService,
+                // private categoriasService: CategoriasService,
                 private produtosService: ProdutosService,
                 private toastr: ToastrService,
                 private router: Router
@@ -30,7 +30,7 @@ export class FormProdutosComponent implements OnInit {
 
     ngOnInit() {
       this.criarFormulario();
-      this.categorias = this.categoriasService.getAll();
+      // this.categorias = this.categoriasService.getAll();
 
       this.key = this.route.snapshot.paramMap.get('key');
       if (this.key) {
@@ -40,9 +40,8 @@ export class FormProdutosComponent implements OnInit {
             subscribe.unsubscribe();
             this.formProduto.setValue({
               nome: produtos.nome,
-              descricao: produtos.descricao,
-              categoriaKey: produtos.categoriaKey,
-              categoriaNome: produtos.categoriaNome,
+              edicao: produtos.edicao,
+              ano: produtos.ano,
             });
 
             this.filePath = produtos.filePath || '';
@@ -53,31 +52,31 @@ export class FormProdutosComponent implements OnInit {
     }
 
     get nome() { return this.formProduto.get('nome'); }
+    get ano() { return this.formProduto.get('ano'); }
+    get edicao() { return this.formProduto.get('edicao'); }
     get descricao() { return this.formProduto.get('descricao'); }
-    get categoriaKey() { return this.formProduto.get('categoriaKey'); }
-    get categoriaNome() { return this.formProduto.get('categoriaNome'); }
 
 
     criarFormulario() {
       this.key = null;
       this.formProduto = this.formBuilder.group({
         nome: ['', Validators.required],
-        categoriaKey: ['', Validators.required],
-        categoriaNome: [''],
+        edicao: ['', Validators.required],
+        ano: [''],
+        descricao: [''],
       });
 
     }
 
-
-    setCategoriaNome(categorias: any) {
-      if (categorias && this.formProduto.value.categoriaKey) {
-        const categoriaNome = categorias[0].text;
-        this.categoriaNome.setValue(categoriaNome);
-        this.formProduto.value.categoriaNome.setValue();
-      } else {
-        this.categoriaNome.setValue('');
-      }
-    }
+    // setCategoriaNome(categorias: any) {
+    //   if (categorias && this.formProduto.value.categoriaKey) {
+    //     const categoriaNome = categorias[0].text;
+    //     this.nome.setValue(categoriaNome);
+    //     this.formProduto.value.categoriaNome.setValue();
+    //   } else {
+    //     this.nome.setValue('');
+    //   }
+    // }
 
     onSubmit() {
       if (this.formProduto.valid) {
@@ -90,7 +89,7 @@ export class FormProdutosComponent implements OnInit {
         }
 
         this.router.navigate(['produtos']);
-        this.toastr.success('Produtos salvo com sucesso!!!');
+        this.toastr.success('Jornal salvo com sucesso!!!');
       }
     }
 
