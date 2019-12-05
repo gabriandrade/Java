@@ -29,7 +29,7 @@
             <a class="btn btn-warning text-white" role="button" [routerLink]="['/produtos/editar', produto.key]"><i class="far fa-edit"></i>Editar</a>
           </td>
           <td class="delete">
-            <button class="btn btn-danger" (click)="remover(produto.key, produtos.filePath)"><i class="far fa-trash-alt"></i>Excluir</button>
+            <button class="btn btn-danger" (click)="remover(produto.key, produto.filePath)"><i class="far fa-trash-alt"></i>Excluir</button>
           </td>
         </tr>
       </tbody>

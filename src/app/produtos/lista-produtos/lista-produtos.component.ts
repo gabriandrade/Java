@@ -16,4 +16,8 @@ export class ListaProdutosComponent implements OnInit {
     this.produtos = this.produtoService.getAll();
   }
 
+  remover(key: string, filePath: string) {
+    this .produtoService.remove(key, filePath);
+  }
+
 }
