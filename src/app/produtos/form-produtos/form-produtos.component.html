@@ -11,8 +11,10 @@
       O nome é obrigatório.
     </div>
   </div>
-  <textarea rows="5" cols="50" id="descricao" name="descrica">
-  </textarea>
+  <div class="form-group">
+    <label for="edicao">Descrição</label>
+    <input type="text" class="form-control" id="descricao" placeholder="Descrição do Jornal" formControlName="descricao">
+  </div>
   <div class="form-group">
     <label for="edicao">Edição</label>
     <input type="number" class="form-control" id="edicao" placeholder="Edição do Jornal" formControlName="edicao">
