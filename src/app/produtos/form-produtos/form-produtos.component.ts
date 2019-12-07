@@ -86,7 +86,7 @@ export class FormProdutosComponent implements OnInit {
     }
 
     removerImg() {
-      this.produtosService.removeImg(this.filePath, this.key);
+      this.produtosService.removerImg(this.filePath, this.key);
       this.imgUrl = '';
       this.filePath = '';
     }
