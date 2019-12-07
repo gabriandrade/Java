@@ -17,7 +17,7 @@ export class ListaProdutosComponent implements OnInit {
   }
 
   remover(key: string, filePath: string) {
-    this .produtoService.remove(key, filePath);
+    this .produtoService.remover(key, filePath);
   }
 
 }

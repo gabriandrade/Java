@@ -24,6 +24,20 @@
     <input type="number" class="form-control" id="ano" placeholder="Ano do Jornal" formControlName="ano">
   </div>
 
+  <!-- O controle abaixo é para fazer upload do arquivo -->
+  <div class="form-group" *ngIf="imgUrl == ''">
+      <label class="form-control-label">Foto/Imagem</label>
+     <input type="file" class="form-control" accept="image/pdf" (change)="upload($event)" formControlName="img" />
+   </div>
+
+   <!-- A div abaixo é para exibir a imagem do produto -->
+    <div class="form-group" *ngIf="imgUrl != ''">
+     <img [src]="imgUrl" class="img-thumbnail d-block" style="max-width: 100px;">
+     <button class="btn btn-danger mt-2" type="button" (click)="removerImg()">
+        Remover imagem
+      </button>
+  </div>
+
   <button type="submit" class="btn btn-primary">Salvar</button>
   <a class="btn btn-secondary ml-2" [routerLink]="['/produtos']">Voltar</a>
 

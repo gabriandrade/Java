@@ -17,6 +17,7 @@ export class FormProdutosComponent implements OnInit {
   categorias: Observable<any[]>;
 
   private file: File = null;
+  imgUrl = '';
   filePath = '';
   result: void;
 
@@ -43,8 +44,10 @@ export class FormProdutosComponent implements OnInit {
               edicao: produtos.edicao,
               ano: produtos.ano,
               descricao: produtos.descricao,
+              img: ''
             });
 
+            this.imgUrl = produtos.img || '';
             this.filePath = produtos.filePath || '';
 
           });
@@ -65,8 +68,27 @@ export class FormProdutosComponent implements OnInit {
         edicao: ['', Validators.required],
         ano: [''],
         descricao: [''],
+        img: ['']
       });
 
+      this.file = null;
+      this.imgUrl = '';
+      this.filePath = '';
+
+    }
+
+    upload(event: any) {
+      if (event.target.files.length) {
+        this.file = event.target.files[0];
+      } else {
+        this.file = null;
+      }
+    }
+
+    removerImg() {
+      this.produtosService.removeImg(this.filePath, this.key);
+      this.imgUrl = '';
+      this.filePath = '';
     }
 
     // setCategoriaNome(categorias: any) {
@@ -87,6 +109,15 @@ export class FormProdutosComponent implements OnInit {
           result = this.produtosService.update(this.formProduto.value, this.key);
         } else {
           result = this.produtosService.insert(this.formProduto.value);
+        }
+
+        if (this.file) {
+          result.then( (key: string) => {
+            this.produtosService.uploadImg(key, this.file);
+            this.criarFormulario();
+          });
+        } else {
+          this.criarFormulario();
         }
 
         this.router.navigate(['produtos']);

@@ -9,11 +9,11 @@
       <thead>
         <tr>
           <!-- <th scope="col">#</th> -->
+          <th scope="col">#</th>
           <th scope="col">Título</th>
           <th scope="col">Edição</th>
           <th scope="col">Ano</th>
           <th scope="col">Descrição</th>
-          <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"></th>
         </tr>
@@ -21,6 +21,9 @@
       <tbody>
         <tr *ngFor="let produto of produtos | async">
           <!-- <th scope="row">{{produto.key}}</th> -->
+          <td>
+            <img [src]="produto.pdf" class="img-thumbnail" style="max-width: 50px;" [hidden]="!produto.pdf" />
+          </td>
           <td>{{ produto.nome }}</td>
           <td>{{ produto.edicao }}</td>
           <td>{{ produto.ano }}</td>
