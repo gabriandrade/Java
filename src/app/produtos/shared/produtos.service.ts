@@ -8,6 +8,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 export class ProdutosService {
   produtosRef: AngularFireList<any>;
+  upload: any;
 
   constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) {
     this.produtosRef = this.db.list('produtos/');
@@ -30,6 +31,7 @@ export class ProdutosService {
         edicao: produto.edicao,
         ano: produto.ano,
         descricao: produto.descricao,
+        img: '',
       };
 
       if (key) {
